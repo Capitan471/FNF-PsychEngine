@@ -47,8 +47,8 @@ class MenuCharacter extends FlxSprite
 		hasConfirmAnimation = false;
 		switch(character) {
 			case '':
-				visible = false;
-				dontPlayAnim = true;
+				visible = true;
+				dontPlayAnim = false;
 			default:
 				var characterPath:String = 'images/menucharacters/' + character + '.json';
 				var rawJson = null;
@@ -79,7 +79,7 @@ class MenuCharacter extends FlxSprite
 				var confirmAnim:String = charFile.confirm_anim;
 				if(confirmAnim != null && confirmAnim != charFile.idle_anim)
 				{
-					animation.addByPrefix('confirm', confirmAnim, 24, false);
+					animation.addByPrefix('confirm', confirmAnim, 24, true);
 					if (animation.getByName('confirm') != null) //check for invalid animation
 						hasConfirmAnimation = true;
 				}
